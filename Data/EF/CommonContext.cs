@@ -3,12 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Data.Configuration;
 
 namespace Data.EF
 {
     public class CommonContext : DbContext
     {
         public CommonContext(DbContextOptions<CommonContext> opt):base(opt){}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new bananConfiguration());
+            modelBuilder.ApplyConfiguration(new loaimonConfiguration());
+            //base.OnModelCreating(modelBuilder);
+        }
         DbSet<loaimon> loaimons { get; set; }
         DbSet<monan>monans { get; set; }
         DbSet<banan> banans { get; set; }

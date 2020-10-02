@@ -16,7 +16,7 @@ namespace api_quanlynhahang.Entities
     {
         public int id { get; set; }
         public int idphieu { get; set; }
-        public int idkhach { get; set; }
+        public int? idkhach { get; set; }
         public int idnv { get; set; }
         public DateTime giott { get; set; }
         public string hinhthuctt { get; set; }
