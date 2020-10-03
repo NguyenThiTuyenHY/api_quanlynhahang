@@ -13,7 +13,10 @@ namespace Data.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new bananConfiguration());
+            modelBuilder.ApplyConfiguration(new binhluanConfiguration());
+            modelBuilder.ApplyConfiguration(new bophanConfiguration());
             modelBuilder.ApplyConfiguration(new loaimonConfiguration());
+            
             //base.OnModelCreating(modelBuilder);
         }
         DbSet<loaimon> loaimons { get; set; }
