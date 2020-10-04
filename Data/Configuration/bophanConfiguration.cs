@@ -13,7 +13,7 @@ namespace Data.Configuration
         {
             builder.ToTable("bophans");
             builder.HasKey(x => x.id);
-            builder.Property(x => x.tenbp).IsRequired();
+            builder.Property(x => x.tenbp).IsRequired().IsUnicode().HasMaxLength(255);
         }
     }
 }

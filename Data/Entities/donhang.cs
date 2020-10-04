@@ -21,6 +21,7 @@ namespace api_quanlynhahang.Entities
         public string sdtgi { get; set; }
         public string diachigiao { get; set; }
         public int tongtien { get; set; }
+        public List<chitietdonhang> chitietdonhangs { get; set; }
     
     }
 }

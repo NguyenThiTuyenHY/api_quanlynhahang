@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Data.Configuration
 {
-    class loaimonConfiguration : IEntityTypeConfiguration<loaimon>
+    public class loaimonConfiguration : IEntityTypeConfiguration<loaimon>
     {
         public void Configure(EntityTypeBuilder<loaimon> builder)
         {

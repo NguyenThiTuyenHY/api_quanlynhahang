@@ -20,7 +20,9 @@ namespace api_quanlynhahang.Entities
         public int gia { get; set; }
         public string mota { get; set; }
         public string hinhanh { get; set; }
-        public int idloai { get; set; }
+        public int idloaimon { get; set; }
+        public loaimon loaimon { get; set; }
+        public chitietdonhang chitietdonhang { get; set; }
 
     }
 }

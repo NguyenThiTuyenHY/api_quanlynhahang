@@ -18,7 +18,9 @@ namespace api_quanlynhahang.Entities
         public int iddh { get; set; }
         public int idmon { get; set; }
         public int soluong { get; set; }
-        public int gia { get; set; }
+        public int gia { get; set; }      
+        public donhang donhang { get; set; }
+        public monan monan { get; set; }
 
     }
 }

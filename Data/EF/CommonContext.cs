@@ -15,8 +15,13 @@ namespace Data.EF
             modelBuilder.ApplyConfiguration(new bananConfiguration());
             modelBuilder.ApplyConfiguration(new binhluanConfiguration());
             modelBuilder.ApplyConfiguration(new bophanConfiguration());
+            modelBuilder.ApplyConfiguration(new calamConfiguration());
+            modelBuilder.ApplyConfiguration(new donhangConfiguration());
+            modelBuilder.ApplyConfiguration(new chitietdonhangConfiguration());
             modelBuilder.ApplyConfiguration(new loaimonConfiguration());
+            modelBuilder.ApplyConfiguration(new monanConfiguration());
             
+
             //base.OnModelCreating(modelBuilder);
         }
         DbSet<loaimon> loaimons { get; set; }

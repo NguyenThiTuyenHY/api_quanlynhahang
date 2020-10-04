@@ -16,6 +16,6 @@ namespace api_quanlynhahang.Entities
     {
         public int id { get; set; }
         public string tenloai { get; set; }
-
+        public List<monan> monans { get; set; }
     }
 }

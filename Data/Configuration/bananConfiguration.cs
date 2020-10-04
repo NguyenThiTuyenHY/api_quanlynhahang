@@ -13,8 +13,8 @@ namespace Data.Configuration
         {
             builder.ToTable("banans");
             builder.HasKey(x => x.id);
-            builder.Property(x => x.soghe).IsRequired();
-            builder.Property(x => x.tinhtrang).IsRequired();
+            builder.Property(x => x.soghe).IsRequired().HasDefaultValue(0);
+            builder.Property(x => x.tinhtrang).IsRequired().HasDefaultValue(0);
         }
     }
 }

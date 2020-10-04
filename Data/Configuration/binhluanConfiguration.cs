@@ -16,7 +16,7 @@ namespace Data.Configuration
             builder.Property(x => x.iduser).IsRequired();
             builder.Property(x => x.ngaybinhluan).HasDefaultValueSql("GetDate()");
             builder.Property(x => x.rate).HasDefaultValue(0);
-            builder.Property(x => x.noidung).IsRequired();
+            builder.Property(x => x.noidung).IsRequired().IsUnicode().HasMaxLength(4000);
         }
     }
 }
