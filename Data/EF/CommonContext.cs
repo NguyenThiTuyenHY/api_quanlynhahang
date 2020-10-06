@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Data.Configuration;
+using Data.Extensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Data.EF
 {
@@ -12,6 +14,8 @@ namespace Data.EF
         public CommonContext(DbContextOptions<CommonContext> opt):base(opt){}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            //Configuration using Fluent API
             modelBuilder.ApplyConfiguration(new bananConfiguration());
             modelBuilder.ApplyConfiguration(new nhanvienConfiguration());
             modelBuilder.ApplyConfiguration(new khachhangConfiguration());
@@ -27,22 +31,23 @@ namespace Data.EF
             modelBuilder.ApplyConfiguration(new nvcaConfiguration());
             modelBuilder.ApplyConfiguration(new sliderConfiguration());
             modelBuilder.ApplyConfiguration(new userConfiguration());
-
+            //Data seeding
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
-        DbSet<loaimon> loaimons { get; set; }
-        DbSet<monan>monans { get; set; }
-        DbSet<banan> banans { get; set; }
-        DbSet<bophan> bophans { get; set; }
-        DbSet<khachhang> Khachhangs { get; set; }
-        DbSet<nhanvien>nhanviens { get; set; }
-        DbSet<calam> calams { get; set; }
-        DbSet<donhang>donhangs { get; set; }
-        DbSet<chitietdonhang>chitietdonhangs { get; set; }
-        DbSet<phieugoimon> phieugoimons { get; set; }
-        DbSet<chitietgoimon>chitietgoimons { get; set; }
-        DbSet<khachthanhtoan>khachthanhtoans { get; set; }
-        DbSet<slider> sliders { get; set; }
-        DbSet<user>users { get; set; }
+        public DbSet<loaimon> loaimons { get; set; }
+        public DbSet<monan>monans { get; set; }
+        public DbSet<banan> banans { get; set; }
+        public DbSet<bophan> bophans { get; set; }
+        public DbSet<khachhang> Khachhangs { get; set; }
+        public DbSet<nhanvien>nhanviens { get; set; }
+        public DbSet<calam> calams { get; set; }
+        public DbSet<donhang>donhangs { get; set; }
+        public DbSet<chitietdonhang>chitietdonhangs { get; set; }
+        public DbSet<phieugoimon> phieugoimons { get; set; }
+        public DbSet<chitietgoimon>chitietgoimons { get; set; }
+        public DbSet<khachthanhtoan>khachthanhtoans { get; set; }
+        public DbSet<slider> sliders { get; set; }
+        public DbSet<user>users { get; set; }
     }
 }
