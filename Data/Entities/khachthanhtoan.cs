@@ -20,7 +20,9 @@ namespace api_quanlynhahang.Entities
         public int idnv { get; set; }
         public DateTime giott { get; set; }
         public string hinhthuctt { get; set; }
-        public int sotien { get; set; }
+        public int sotien { get; set; }       
+        public phieugoimon phieugoimon { get; set; }
+        public nhanvien nhanvien { get; set; }
 
     }
 }

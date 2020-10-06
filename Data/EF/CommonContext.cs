@@ -13,14 +13,20 @@ namespace Data.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new bananConfiguration());
-            modelBuilder.ApplyConfiguration(new binhluanConfiguration());
+            modelBuilder.ApplyConfiguration(new nhanvienConfiguration());
+            modelBuilder.ApplyConfiguration(new khachhangConfiguration());
             modelBuilder.ApplyConfiguration(new bophanConfiguration());
+            modelBuilder.ApplyConfiguration(new phieugoimonConfiguration());
             modelBuilder.ApplyConfiguration(new calamConfiguration());
             modelBuilder.ApplyConfiguration(new donhangConfiguration());
             modelBuilder.ApplyConfiguration(new chitietdonhangConfiguration());
             modelBuilder.ApplyConfiguration(new loaimonConfiguration());
             modelBuilder.ApplyConfiguration(new monanConfiguration());
-            
+            modelBuilder.ApplyConfiguration(new khachthanhtoanConfiguration());
+            modelBuilder.ApplyConfiguration(new binhluanConfiguration());
+            modelBuilder.ApplyConfiguration(new nvcaConfiguration());
+            modelBuilder.ApplyConfiguration(new sliderConfiguration());
+            modelBuilder.ApplyConfiguration(new userConfiguration());
 
             //base.OnModelCreating(modelBuilder);
         }

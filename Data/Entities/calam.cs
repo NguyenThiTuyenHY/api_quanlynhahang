@@ -18,7 +18,7 @@ namespace api_quanlynhahang.Entities
         public string tenca { get; set; }
         public string giobd { get; set; }
         public string giokt { get; set; }
-        public string ghichu { get; set; }
-    
+        public string ghichu { get; set; }       
+        public List<nvca> nvca { get; set; } 
     }
 }

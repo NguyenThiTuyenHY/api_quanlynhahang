@@ -17,6 +17,6 @@ namespace api_quanlynhahang.Entities
 
         public int id { get; set; }
         public string tenbp { get; set; }
-    
+        public List<nhanvien> nhanviens { get; set; }
     }
 }

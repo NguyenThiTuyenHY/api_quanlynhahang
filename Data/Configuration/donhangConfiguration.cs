@@ -11,7 +11,11 @@ namespace Data.Configuration
     {
         public void Configure(EntityTypeBuilder<donhang> builder)
         {
-            builder.ToTable("chitietdonhangs");
+            builder.ToTable("donhang");
+            builder.Property(x => x.sdtgiao).HasMaxLength(10).IsRequired();
+            builder.Property(x => x.diachigiao).HasMaxLength(4000).IsUnicode().IsRequired();
+            builder.Property(x => x.tongtien).HasDefaultValue(0);
+            builder.Property(x => x.tinhtrang).HasDefaultValue(0);
         }
     }
 }

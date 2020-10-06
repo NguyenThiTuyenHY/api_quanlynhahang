@@ -18,6 +18,6 @@ namespace api_quanlynhahang.Entities
         public int idnv { get; set; }
         public int idca { get; set; }
         public DateTime ngaydk { get; set; }
-
+        public calam calam { get; set; } 
     }
 }

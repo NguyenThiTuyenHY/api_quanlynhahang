@@ -19,6 +19,6 @@ namespace api_quanlynhahang.Entities
         public int soban { get; set; }
         public int idkhach { get; set; }
         public DateTime giogoi { get; set; }
-    
+        public khachthanhtoan khachthanhtoan { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace api_quanlynhahang.Entities
         public int gioitinh { get; set; }
         public string diachi { get; set; }
         public DateTime gianhap { get; set; }
-    
+        public khachthanhtoan khachthanhtoan { get; set; }
+        public bophan bophan { get; set; }
+        public List<nvca> nvca { get; set; }
     }
 }

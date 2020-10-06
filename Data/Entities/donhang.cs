@@ -14,11 +14,10 @@ namespace api_quanlynhahang.Entities
     
     public partial class donhang
     {
-
         public int id { get; set; }
         public int? idkhach { get; set; }
         public int tinhtrang { get; set; }
-        public string sdtgi { get; set; }
+        public string sdtgiao { get; set; }
         public string diachigiao { get; set; }
         public int tongtien { get; set; }
         public List<chitietdonhang> chitietdonhangs { get; set; }
