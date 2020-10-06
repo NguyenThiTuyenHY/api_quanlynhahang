@@ -5,3 +5,5 @@
 - Micrsoft.EntityFrameworkCore.Sqlserve
 - Micrsoft.EntityFrameworkCore.Design
 - Micrsoft.EntityFrameworkCore.Tools
+- Micrsoft.Extensions.Configuration.FileExtensions
+- Micrsoft.Extensions.Configuration.Json
