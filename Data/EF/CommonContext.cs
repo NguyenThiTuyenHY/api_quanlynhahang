@@ -43,6 +43,35 @@ namespace Data.EF
             //Data seeding
             modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(builder);
+            var roleid = new Guid("DDE4BA55-808E-479F-BE8B-72F69913442F");
+            var userid = new Guid("06E12DF2-49EC-4F5A-9D45-FD714EBCA62E");
+            modelBuilder.Entity<approle>().HasData(new approle
+            {
+                Id = roleid,
+                Name = "admin",
+                NormalizedName = "admin"
+            });
+
+            var hasher = new PasswordHasher<appuser>();
+            modelBuilder.Entity<appuser>().HasData(new appuser
+            {
+                Id = userid,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "trangchatrang98@gmail.com",
+                NormalizedEmail = "trangchatrang98@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "a12345678"),
+                SecurityStamp = string.Empty,
+                Day = new DateTime(1999, 01, 30)
+            });
+
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+            {
+                RoleId = roleid,
+                UserId = userid
+            });
         }
         public DbSet<loaimon> loaimons { get; set; }
         public DbSet<monan>monans { get; set; }
