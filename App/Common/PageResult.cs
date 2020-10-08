@@ -4,7 +4,7 @@ using System.Text;
 
 namespace App.Common
 {
-    public class PageViewModel<T>
+    public class PageResult<T>
     {
         List<T> items { get; set; }
         public int TotalRecord { get; set; }

@@ -16,6 +16,6 @@ namespace App.BLL.Interfaces
         Task<HttpResponseMessage> Delete_banan(int id);
         Task<HttpResponseMessage> Edit_banan(int id, banan ba);
 
-        Task<PageViewModel<banan>> Get_All_banan_keywork(string keyword, int pageIndex, int pageSize);
+        Task<PageResult<banan>> Get_All_banan_keywork(string keyword, int pageIndex, int pageSize);
     }
 }

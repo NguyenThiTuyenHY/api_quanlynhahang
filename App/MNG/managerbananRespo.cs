@@ -40,7 +40,7 @@ namespace App.BLL
             throw new NotImplementedException();
         }
 
-        public Task<PageViewModel<banan>> Get_All_banan_keywork(string keyword, int pageIndex, int pageSize)
+        public Task<PageResult<banan>> Get_All_banan_keywork(string keyword, int pageIndex, int pageSize)
         {
             throw new NotImplementedException();
         }

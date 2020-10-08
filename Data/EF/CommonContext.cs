@@ -6,10 +6,12 @@ using System.Text;
 using Data.Configuration;
 using Data.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Data.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Data.EF
 {
-    public class CommonContext : DbContext
+    public class CommonContext : IdentityDbContext<appuser,approle,Guid>
     {
         public CommonContext(DbContextOptions<CommonContext> opt):base(opt){}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,6 +33,13 @@ namespace Data.EF
             modelBuilder.ApplyConfiguration(new nvcaConfiguration());
             modelBuilder.ApplyConfiguration(new sliderConfiguration());
             modelBuilder.ApplyConfiguration(new userConfiguration());
+            modelBuilder.ApplyConfiguration(new approleConfiguration());
+            modelBuilder.ApplyConfiguration(new appuserConfiguration());
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("IdentityUserClaims");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("IdentityUserRoles").HasKey(x=>new {x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("IdentityUserLogins").HasKey(x=>x.UserId);
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("IdentityRoleClaims");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("IdentityUserTokens").HasKey(x=>x.UserId);
             //Data seeding
             modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
