@@ -13,9 +13,9 @@ namespace App.BLL.Interfaces
         Task<List<banan>> Get_All_banan();
         Task<banan> Get_banan_By_ID(int id);
         Task<int> Create_banan(banan ba);
-        Task<HttpResponseMessage> Delete_banan(int id);
-        Task<HttpResponseMessage> Edit_banan(int id, banan ba);
-
+        Task<int> Delete_banan(int id);
+        Task<int> Edit_banan_state(int id);
+        Task<int> Edit_banan_makh(int id, int makh);
         Task<PageResult<banan>> Get_All_banan_keywork(string keyword, int pageIndex, int pageSize);
     }
 }

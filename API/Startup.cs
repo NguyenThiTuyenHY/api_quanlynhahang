@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Data.EF;
 using Microsoft.EntityFrameworkCore;
+using App;
+using App.BLL.Interfaces;
+using App.BLL;
 
 namespace API
 {
@@ -27,6 +30,8 @@ namespace API
         {
             services.AddDbContext<CommonContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+            services.AddTransient<IManagerbananRespo, managerbananRespo>();
+            services.AddTransient<IManagerbophanRespo, managerbophanRespo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
