@@ -28,10 +28,14 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()           //Fix API ISSUE
+                                                                   .AllowAnyMethod()               //Fix API ISSUE
+                                                                    .AllowAnyHeader()));           //Fix API ISSUE
             services.AddDbContext<CommonContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
-            services.AddTransient<IManagerbananRespo, managerbananRespo>();
+            services.AddTransient<IManagerbananRespo, ManagerbananRespo>();
             services.AddTransient<IManagerbophanRespo, managerbophanRespo>();
+            services.AddTransient<IManagerloaimonanRespo, ManagerloaimonRespo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,11 +53,9 @@ namespace API
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCors("AllowAll");
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -10,8 +10,8 @@ namespace App.BLL.Interfaces
 {
     public interface IManagerbananRespo
     {
-        Task<List<banan>> Get_All_banan();
-        Task<banan> Get_banan_By_ID(int id);
+        List<banan> Get_All_banan();
+        banan Get_banan_By_ID(int id);
         Task<int> Create_banan(banan ba);
         Task<int> Delete_banan(int id);
         Task<int> Edit_banan_state(int id);

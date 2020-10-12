@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace App.BLL
 {
-    public class managerbananRespo : IManagerbananRespo
+    public class ManagerbananRespo : IManagerbananRespo
     {
         private readonly CommonContext _context;
-        public managerbananRespo(CommonContext context)
+        public ManagerbananRespo(CommonContext context)
         {
             _context = context;
         }
@@ -34,10 +34,9 @@ namespace App.BLL
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<List<banan>> Get_All_banan()
+        public List<banan> Get_All_banan()
         {
-            List<banan> ds = null;
-            ds = _context.banans.ToList();
+            List<banan> ds = _context.banans.ToList();
             return ds;
         }
 
@@ -46,7 +45,7 @@ namespace App.BLL
             throw new NotImplementedException();
         }
 
-        public async Task<banan> Get_banan_By_ID(int id)
+        public banan Get_banan_By_ID(int id)
         {
             banan ba = _context.banans.SingleOrDefault(x => x.id == id);
             return ba;
