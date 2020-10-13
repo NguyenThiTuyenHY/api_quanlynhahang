@@ -31,7 +31,7 @@ namespace App.BLL
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<List<bophan>> Get_All_Bophan()
+        public List<bophan> Get_All_Bophan()
         {
             List<bophan> ds = _context.bophans.ToList();
             return ds;

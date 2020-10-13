@@ -13,7 +13,7 @@ namespace App.BLL.Interfaces
         Task<int> Delete_Bophan(int id);
         Task<int> Update_Bophan(int id, bophan bp);
         Task<bophan> Get_Bophan_Get_ID(int id);
-        Task<List<bophan>> Get_All_Bophan();
+        List<bophan> Get_All_Bophan();
         Task<List<bophan>> Get_All_Bophan_keywork(int pageIndex, int pageSize, string keywork);
     }
 }
