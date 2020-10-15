@@ -4,14 +4,16 @@ using Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(CommonContext))]
-    partial class CommonContextModelSnapshot : ModelSnapshot
+    [Migration("20201015010519_newdatabase")]
+    partial class newdatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +48,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = new Guid("dde4ba55-808e-479f-be8b-72f69913442f"),
-                            ConcurrencyStamp = "5537e1e7-ffa5-424c-adf0-f38e29260edb",
+                            ConcurrencyStamp = "324c36a3-c450-4775-bbb6-da82e9a37cee",
                             Name = "admin",
                             NormalizedName = "admin"
                         });
@@ -112,14 +114,14 @@ namespace Data.Migrations
                         {
                             Id = new Guid("06e12df2-49ec-4f5a-9d45-fd714ebca62e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "19904862-28d6-486e-a79e-7ca1b2f70c10",
+                            ConcurrencyStamp = "56d71188-f451-4fb5-a401-868dca1fc56d",
                             Day = new DateTime(1999, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "trangchatrang98@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "trangchatrang98@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKPetSzK7cuJUIaPss6WlEE0HotaVWMa+DU8EEkDD+atgEY6XtyK97xnpWrpzRxH0A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKFdMXweEKLYrrw0ygreXl4G1rr5CM7rIVDfpK+LwqiEXEc0HcJ2dTkzpntkGeTwBQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -589,11 +591,6 @@ namespace Data.Migrations
                         {
                             id = 3,
                             tenloai = "Món khai vị"
-                        },
-                        new
-                        {
-                            id = 4,
-                            tenloai = "Món tráng miệng"
                         });
                 });
 
@@ -630,11 +627,6 @@ namespace Data.Migrations
                         .IsUnicode(true)
                         .HasDefaultValue("Đang cập nhật");
 
-                    b.Property<DateTime>("ngaynhap")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("getdate()");
-
                     b.Property<string>("tenmon")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
@@ -646,63 +638,6 @@ namespace Data.Migrations
                     b.HasIndex("idloaimon");
 
                     b.ToTable("monans");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            donvitinh = "đĩa",
-                            gia = 20000,
-                            hinhanh = "bach-tuoc-nuong-900x600.jpg",
-                            idloaimon = 2,
-                            mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 15, 8, 53, 5, 799, DateTimeKind.Local).AddTicks(1466),
-                            tenmon = "Bạch tuộc nướng"
-                        },
-                        new
-                        {
-                            id = 2,
-                            donvitinh = "đĩa",
-                            gia = 20000,
-                            hinhanh = "banh-cuon-900x587.jpg",
-                            idloaimon = 2,
-                            mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 15, 8, 53, 5, 799, DateTimeKind.Local).AddTicks(2056),
-                            tenmon = "Bánh cuốn"
-                        },
-                        new
-                        {
-                            id = 3,
-                            donvitinh = "đĩa",
-                            gia = 20000,
-                            hinhanh = "anh-caramen.jpg",
-                            idloaimon = 4,
-                            mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 15, 8, 53, 5, 799, DateTimeKind.Local).AddTicks(2072),
-                            tenmon = "Caramen"
-                        },
-                        new
-                        {
-                            id = 4,
-                            donvitinh = "đĩa",
-                            gia = 20000,
-                            hinhanh = "bulgogi1.jpg",
-                            idloaimon = 4,
-                            mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 15, 8, 53, 5, 799, DateTimeKind.Local).AddTicks(2075),
-                            tenmon = "bulgogi vị dâu"
-                        },
-                        new
-                        {
-                            id = 5,
-                            donvitinh = "đĩa",
-                            gia = 20000,
-                            hinhanh = "bulgogi2.jpg",
-                            idloaimon = 4,
-                            mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 15, 8, 53, 5, 799, DateTimeKind.Local).AddTicks(2077),
-                            tenmon = "bulgogi vị cam"
-                        });
                 });
 
             modelBuilder.Entity("api_quanlynhahang.Entities.nhanvien", b =>
@@ -755,7 +690,7 @@ namespace Data.Migrations
                         {
                             id = 1,
                             diachi = "Đồng Tiến - Khoái Châu - Hưng Yên",
-                            gianhap = new DateTime(2020, 10, 15, 8, 53, 5, 797, DateTimeKind.Local).AddTicks(5479),
+                            gianhap = new DateTime(2020, 10, 15, 8, 5, 18, 361, DateTimeKind.Local).AddTicks(9796),
                             gioitinh = 1,
                             hoten = "Triệu Tiểu Đường",
                             idbophan = 1,
@@ -766,7 +701,7 @@ namespace Data.Migrations
                         {
                             id = 2,
                             diachi = "Hồng Hà - Yên Bái - Yên Bái",
-                            gianhap = new DateTime(2020, 10, 15, 8, 53, 5, 798, DateTimeKind.Local).AddTicks(5480),
+                            gianhap = new DateTime(2020, 10, 15, 8, 5, 18, 362, DateTimeKind.Local).AddTicks(9816),
                             gioitinh = 1,
                             hoten = "Ngu Thư Hân",
                             idbophan = 2,
@@ -777,7 +712,7 @@ namespace Data.Migrations
                         {
                             id = 3,
                             diachi = "Đồng Tiến - Khoái Châu - Hưng Yên",
-                            gianhap = new DateTime(2020, 10, 15, 8, 53, 5, 798, DateTimeKind.Local).AddTicks(5513),
+                            gianhap = new DateTime(2020, 10, 15, 8, 5, 18, 362, DateTimeKind.Local).AddTicks(9851),
                             gioitinh = 1,
                             hoten = "Dụ Ngôn",
                             idbophan = 3,
@@ -788,7 +723,7 @@ namespace Data.Migrations
                         {
                             id = 4,
                             diachi = "Đồng Tiến - Khoái Châu - Hưng Yên",
-                            gianhap = new DateTime(2020, 10, 15, 8, 53, 5, 798, DateTimeKind.Local).AddTicks(5516),
+                            gianhap = new DateTime(2020, 10, 15, 8, 5, 18, 362, DateTimeKind.Local).AddTicks(9854),
                             gioitinh = 1,
                             hoten = "Lục Khả Nhiên",
                             idbophan = 1,

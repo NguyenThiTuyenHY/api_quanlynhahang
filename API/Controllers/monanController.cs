@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api_quanlynhahang.Entities;
 using App.BLL;
+using App.BLL.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,8 +14,8 @@ namespace API.Controllers
     [ApiController]
     public class monanController : ControllerBase
     {
-        private readonly ManagermonanRespo _Respo;
-        public monanController(ManagermonanRespo respo)
+        private readonly IManagermonanRespo _Respo;
+        public monanController(IManagermonanRespo respo)
         {
             _Respo = respo;
         }
@@ -31,6 +32,24 @@ namespace API.Controllers
             var a = mn;
             return true;
             //return _Respo.Create_mon_an(mn);
+        }
+        [Route("get_mon_an_new")]
+        [HttpGet]
+        public List<monan> get_mon_an_new()
+        {
+            return _Respo.Get_Mon_An_New();
+        }
+        [Route("get_mon_an_rate")]
+        [HttpGet]
+        public List<monan> get_mon_an_rate()
+        {
+            return _Respo.Get_Mon_An_Rate();
+        }
+        [Route("get_mon_an_by_idlm")]
+        [HttpGet]
+        public monantotal get_mon_an_by_idlm(int id,int pageSize,int pageIndex,int order)
+        {
+            return _Respo.Get_Mon_An_Loai(id, pageSize, pageIndex, order);
         }
     }
 }

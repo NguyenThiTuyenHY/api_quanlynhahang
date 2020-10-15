@@ -22,6 +22,7 @@ namespace api_quanlynhahang.Entities
         public string hinhanh { get; set; }
         public int idloaimon { get; set; }
         public loaimon loaimon { get; set; }
+        public DateTime ngaynhap { get; set; }
         public chitietdonhang chitietdonhang { get; set; }
 
     }

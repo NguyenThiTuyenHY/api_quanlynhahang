@@ -35,6 +35,7 @@ namespace Data.EF
             modelBuilder.ApplyConfiguration(new userConfiguration());
             modelBuilder.ApplyConfiguration(new approleConfiguration());
             modelBuilder.ApplyConfiguration(new appuserConfiguration());
+            modelBuilder.ApplyConfiguration(new tintucCofiguration());
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("IdentityUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("IdentityUserRoles").HasKey(x=>new {x.UserId, x.RoleId });
             modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("IdentityUserLogins").HasKey(x=>x.UserId);
@@ -87,5 +88,6 @@ namespace Data.EF
         public DbSet<khachthanhtoan>khachthanhtoans { get; set; }
         public DbSet<slider> sliders { get; set; }
         public DbSet<user>users { get; set; }
+        public DbSet<tintuc> tintucs { get; set; }
     }
 }

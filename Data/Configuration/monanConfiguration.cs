@@ -19,6 +19,7 @@ namespace Data.Configuration
             builder.Property(x => x.gia).HasDefaultValue(0);
             builder.Property(x => x.mota).HasDefaultValue("Đang cập nhật").IsUnicode().HasMaxLength(4000);
             builder.Property(x => x.hinhanh).IsRequired().HasMaxLength(4000);
+            builder.Property(x => x.ngaynhap).HasDefaultValueSql("getdate()");
             builder.HasOne(ma => ma.loaimon).WithMany(l => l.monans).HasForeignKey(ma => ma.idloaimon);
         }
     }

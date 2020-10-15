@@ -45,8 +45,16 @@ namespace Data.Extensions
             modelBuilder.Entity<loaimon>().HasData(
                 new loaimon() { id = 1, tenloai ="Món chính"},
                 new loaimon() { id = 2, tenloai = "Món phụ" },
-                new loaimon() { id = 3, tenloai = "Món khai vị" }
+                new loaimon() { id = 3, tenloai = "Món khai vị" },
+                new loaimon() { id = 4, tenloai = "Món tráng miệng" }
                 );
+            modelBuilder.Entity<monan>().HasData(
+                    new monan() { id = 1, tenmon = "Bạch tuộc nướng", donvitinh = "đĩa", gia = 20000, mota = "Cập nhật sau", hinhanh = "bach-tuoc-nuong-900x600.jpg", idloaimon = 2,ngaynhap=DateTime.Now },
+                    new monan() { id = 2, tenmon = "Bánh cuốn", donvitinh = "đĩa", gia = 20000, mota = "Cập nhật sau", hinhanh = "banh-cuon-900x587.jpg", idloaimon = 2, ngaynhap = DateTime.Now },
+                    new monan() { id = 3, tenmon = "Caramen", donvitinh = "đĩa", gia = 20000, mota = "Cập nhật sau", hinhanh = "anh-caramen.jpg", idloaimon = 4, ngaynhap = DateTime.Now },
+                    new monan() { id = 4, tenmon = "bulgogi vị dâu", donvitinh = "đĩa", gia = 20000, mota = "Cập nhật sau", hinhanh = "bulgogi1.jpg", idloaimon = 4, ngaynhap = DateTime.Now },
+                    new monan() { id = 5, tenmon = "bulgogi vị cam", donvitinh = "đĩa", gia = 20000, mota = "Cập nhật sau", hinhanh = "bulgogi2.jpg", idloaimon = 4, ngaynhap = DateTime.Now }
+                    );
         }
     }
 }
