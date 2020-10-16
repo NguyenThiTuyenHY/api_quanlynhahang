@@ -36,10 +36,9 @@ namespace App.BLL
                 return null;
             }
         }
-
         public loaimon Get_Loai_Mon_By_ID(int id)
         {
-            throw new NotImplementedException();
+            return _context.loaimons.Find(id);
         }
 
         public bool Put_Loai_Mon(int id, loaimon lm)

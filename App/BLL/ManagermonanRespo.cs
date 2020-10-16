@@ -4,6 +4,7 @@ using Data.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace App.BLL
@@ -48,7 +49,9 @@ namespace App.BLL
 
         public monan Get_mon_an(int id)
         {
-            throw new NotImplementedException();
+            monan mn = _context.monans.SingleOrDefault(x => x.id == id);
+            //mn.loaimon = _context.loaimons.SingleOrDefault(x => x.id == mn.idloaimon);
+            return mn;
         }
 
         public List<monan> Get_Mon_An_New()

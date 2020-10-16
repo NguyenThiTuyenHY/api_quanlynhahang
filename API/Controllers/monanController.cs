@@ -19,6 +19,12 @@ namespace API.Controllers
         {
             _Respo = respo;
         }
+        //[Route("get_detail_mon_an")]
+        [HttpGet("{id}")]
+        public monan get_detail_mon_an(int id)
+        {
+            return _Respo.Get_mon_an(id);
+        }
         [Route("get_all_mon_an")]
         [HttpGet]
         public List<monan> Get_All_Mon_An()
@@ -50,6 +56,6 @@ namespace API.Controllers
         public monantotal get_mon_an_by_idlm(int id,int pageSize,int pageIndex,int order)
         {
             return _Respo.Get_Mon_An_Loai(id, pageSize, pageIndex, order);
-        }
+        }      
     }
 }

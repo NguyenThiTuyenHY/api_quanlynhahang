@@ -24,5 +24,10 @@ namespace API.Controllers
         {
             return _IMloaimonan.Get_All_Loai_Mon();
         }
+        [HttpGet("{id}")]
+        public loaimon Get_loai_mon_by_id(int id)
+        {
+            return _IMloaimonan.Get_Loai_Mon_By_ID(id);
+        }
     }
 }
