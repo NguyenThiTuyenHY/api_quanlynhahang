@@ -56,6 +56,12 @@ namespace API.Controllers
         public monantotal get_mon_an_by_idlm(int id,int pageSize,int pageIndex,int order)
         {
             return _Respo.Get_Mon_An_Loai(id, pageSize, pageIndex, order);
-        }      
+        }
+        [Route("get_mon_an_by_search")]
+        [HttpGet]
+        public monantotal get_mon_an_by_search(int? id, int pageSize, int pageIndex, int order,string search)
+        {
+            return _Respo.Get_Mon_An_Loai_Search(id, pageSize, pageIndex, order, search);
+        }
     }
 }

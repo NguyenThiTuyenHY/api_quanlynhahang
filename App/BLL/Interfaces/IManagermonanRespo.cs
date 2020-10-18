@@ -21,5 +21,7 @@ namespace App.BLL.Interfaces
         bool Delete_mon_an(int id);
 
         public monantotal Get_Mon_An_Loai(int id, int pageSize, int pageIndex, int order);
+
+        public monantotal Get_Mon_An_Loai_Search(int? id, int pageSize, int pageIndex, int order, string search);
     }
 }

@@ -3,6 +3,7 @@ using App.BLL.Interfaces;
 using Data.EF;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -70,6 +71,54 @@ namespace App.BLL
             {
                 case 1: //mac dinh
                     ds = ds.OrderBy(x => x.tenmon); 
+                    break;
+                case 2: // theo ten
+                    ds = ds.OrderBy(x => x.tenmon);
+                    break;
+                case 3: // danh gia
+                    ds = ds.OrderByDescending(x => x.id);
+                    break;
+                case 4: // moi nhat
+                    ds = ds.OrderByDescending(x => x.id);
+                    break;
+                case 5: // thap cao
+                    ds = ds.OrderBy(x => x.gia);
+                    break;
+                case 6: // cao thap
+                    ds = ds.OrderByDescending(x => x.gia);
+                    break;
+            }
+            int count = ds.Count();
+            int index = (pageSize * (pageIndex - 1));
+            ds = ds.Skip(index).Take(pageSize);
+            monantotal result = new monantotal();
+            result.monans = ds.ToList();
+            result.total = count;
+            return result;
+        }
+
+        public monantotal Get_Mon_An_Loai_Search(int? id, int pageSize, int pageIndex, int order, string search)
+        {
+            IQueryable<monan> ds;
+            if (id == 0)
+            {
+                 ds = _context.monans;
+            }
+            else
+            {
+                if(search == null || search =="")
+                {
+                    ds = _context.monans.Where(x => x.idloaimon == id);
+                }
+                else
+                {
+                    ds = _context.monans.Where(x => x.idloaimon == id && x.tenmon.IndexOf(search) >= 0);
+                }
+            }
+            switch (order)
+            {
+                case 1: //mac dinh
+                    ds = ds.OrderBy(x => x.tenmon);
                     break;
                 case 2: // theo ten
                     ds = ds.OrderBy(x => x.tenmon);
