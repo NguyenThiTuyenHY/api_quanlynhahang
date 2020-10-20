@@ -37,9 +37,11 @@ namespace App.BLL
             return ds;
         }
 
-        public Task<List<bophan>> Get_All_Bophan_keywork(int pageIndex, int pageSize, string keywork)
+        public List<bophan> Get_All_Bophan_keywork(int pageIndex, int pageSize, string keywork)
         {
-            throw new NotImplementedException();
+            int index = pageSize * (pageIndex - 1);
+            List<bophan> ds = _context.bophans.Where(x => x.tenbp.IndexOf(keywork)>=0).Skip(index).Take(pageSize).ToList();
+            return ds;
         }
 
         public async Task<bophan> Get_Bophan_Get_ID(int id)

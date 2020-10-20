@@ -14,6 +14,6 @@ namespace App.BLL.Interfaces
         Task<int> Update_Bophan(int id, bophan bp);
         Task<bophan> Get_Bophan_Get_ID(int id);
         List<bophan> Get_All_Bophan();
-        Task<List<bophan>> Get_All_Bophan_keywork(int pageIndex, int pageSize, string keywork);
+        List<bophan> Get_All_Bophan_keywork(int pageIndex, int pageSize, string keywork);
     }
 }

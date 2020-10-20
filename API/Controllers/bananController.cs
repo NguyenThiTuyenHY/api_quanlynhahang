@@ -60,9 +60,9 @@ namespace API.Controllers
                 return false;
             }
         }
-        [Route("Put_banan_state")]
-        [HttpPut]
-        public bool Put_Banan_State(int id)
+        //[Route("Put_banan_state")]
+        [HttpPost("Put_banan_state/{id}")]
+        public bool Put_Banan_State(int id,[FromBody]banan bn)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace API.Controllers
             }
         }
         [Route("Put_Banan_Makh")]
-        [HttpPut]
+        [HttpGet]
         public bool Put_Banan_Makh(int id, int makh)
         {
             try

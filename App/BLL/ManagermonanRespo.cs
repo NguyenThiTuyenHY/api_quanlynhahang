@@ -144,5 +144,10 @@ namespace App.BLL
             result.total = count;
             return result;
         }
+
+        public List<monan> Get_Mon_An_Lien_Quan(int id, int idloai)
+        {
+            return _context.monans.Where(x => x.idloaimon == idloai).OrderByDescending(x=>x.id).Take(4).ToList();
+        }
     }
 }

@@ -63,5 +63,11 @@ namespace API.Controllers
         {
             return _Respo.Get_Mon_An_Loai_Search(id, pageSize, pageIndex, order, search);
         }
+        [Route("get_mon_an_lien_he")]
+        [HttpGet]
+        public List<monan> get_mon_an_lien_he(int id, int idloai)
+        {
+            return _Respo.Get_Mon_An_Lien_Quan(id, idloai);
+        }
     }
 }
