@@ -24,5 +24,33 @@ namespace API.Controllers
         {
             return _Respo.Get_All_Bophan();
         }
+        [Route("get_bo_phan_by_id/{id}")]
+        [HttpGet]
+        public bophan Get_bo_phan_by_id(int id)
+        {
+            return _Respo.Get_Bophan_Get_ID(id);
+        }
+        [Route("create_bo_phan")]
+        [HttpGet]
+        public bool create_bo_phan(string tenbp)
+        {
+            bophan bp = new bophan();
+            bp.tenbp = tenbp;
+            return _Respo.Create_Bophan(bp);
+        }
+        [Route("update_bo_phan")]
+        [HttpGet]
+        public bool update_bo_phan(int id,string tenbp)
+        {
+            bophan bp = new bophan();
+            bp.tenbp = tenbp;
+            return _Respo.Update_Bophan(id, bp);
+        }
+        [Route("delete_bo_phan")]
+        [HttpGet]
+        public bool delete_bo_phan(int id)
+        {
+            return _Respo.Delete_Bophan(id);
+        }
     }
 }

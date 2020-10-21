@@ -1,13 +1,20 @@
 ﻿using api_quanlynhahang.Entities;
 using App.BLL.Interfaces;
+using Data.EF;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace App.BLL
 {
     public class ManageruserRespo : IManageruserRespo
     {
+        private CommonContext _context;
+        public ManageruserRespo(CommonContext context)
+        {
+            _context = context;
+        }
         public bool changepass(int id)
         {
             throw new NotImplementedException();
@@ -28,9 +35,14 @@ namespace App.BLL
             throw new NotImplementedException();
         }
 
-        public bool getUser(string email, string pass)
+        public user getUser(string email, string pass)
         {
-            throw new NotImplementedException();
+            user result = _context.users.SingleOrDefault(x => x.email == email && x.password == pass);
+            if (result == null)
+            {
+                return null;
+            }
+            return result;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace api_quanlynhahang.Entities
     {
         public int id { get; set; }
         public int? idkhach { get; set; }
+        public string tenkhach { get; set; }
         public int tinhtrang { get; set; }
         public string sdtgiao { get; set; }
         public string diachigiao { get; set; }

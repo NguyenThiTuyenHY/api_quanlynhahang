@@ -17,18 +17,34 @@ namespace App.BLL
             _context = context;
         }
 
-        public async Task<int> Create_Bophan(bophan bp)
+        public bool Create_Bophan(bophan bp)
         {
-            _context.bophans.Add(bp);
-            return await _context.SaveChangesAsync();
+            try
+            {
+                _context.bophans.Add(bp);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public async Task<int> Delete_Bophan(int id)
+        public bool Delete_Bophan(int id)
         {
-            bophan dp = _context.bophans.SingleOrDefault(x => x.id == id);
-            if (dp != null)
-                _context.bophans.Remove(dp);
-            return await _context.SaveChangesAsync();
+            try
+            {
+                bophan dp = _context.bophans.SingleOrDefault(x => x.id == id);
+                if (dp != null)
+                    _context.bophans.Remove(dp);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<bophan> Get_All_Bophan()
@@ -44,20 +60,28 @@ namespace App.BLL
             return ds;
         }
 
-        public async Task<bophan> Get_Bophan_Get_ID(int id)
+        public bophan Get_Bophan_Get_ID(int id)
         {
             bophan bp = _context.bophans.SingleOrDefault(x => x.id == id);
             return bp;
         }
 
-        public async Task<int> Update_Bophan(int id, bophan bp)
+        public bool Update_Bophan(int id, bophan bp)
         {
-            bophan a = _context.bophans.SingleOrDefault(x => x.id == id);
-            if (a != null)
+            try
             {
-                a.tenbp = bp.tenbp;
+                bophan a = _context.bophans.SingleOrDefault(x => x.id == id);
+                if (a != null)
+                {
+                    a.tenbp = bp.tenbp;
+                }
+                _context.SaveChanges();
+                return true;
             }
-            return await _context.SaveChangesAsync();
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

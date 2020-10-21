@@ -37,6 +37,8 @@ namespace API
             services.AddTransient<IManagerbophanRespo, managerbophanRespo>();
             services.AddTransient<IManagerloaimonanRespo, ManagerloaimonRespo>();
             services.AddTransient<IManagermonanRespo, ManagermonanRespo>();
+            services.AddTransient<IManageruserRespo, ManageruserRespo>();
+            services.AddTransient<IManagerhoadonRespo, ManagerhoadonRespo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

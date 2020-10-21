@@ -4,14 +4,16 @@ using Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(CommonContext))]
-    partial class CommonContextModelSnapshot : ModelSnapshot
+    [Migration("20201021033520_update20201021")]
+    partial class update20201021
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +48,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = new Guid("dde4ba55-808e-479f-be8b-72f69913442f"),
-                            ConcurrencyStamp = "fa94163e-c163-4f79-bd43-dfa8249b76ae",
+                            ConcurrencyStamp = "ca975913-1d56-410d-8f44-9154de4af049",
                             Name = "admin",
                             NormalizedName = "admin"
                         });
@@ -112,14 +114,14 @@ namespace Data.Migrations
                         {
                             Id = new Guid("06e12df2-49ec-4f5a-9d45-fd714ebca62e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "09a2b370-a39a-4311-bf5e-fb4e2afa4d94",
+                            ConcurrencyStamp = "08e9570a-a244-4198-83c2-b520a285db47",
                             Day = new DateTime(1999, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "trangchatrang98@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "trangchatrang98@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKovSOuyh/BvY7J6kCj8eNpg6uV/ce7QP8App5+aqbXcmmKgybDLsQ5gESAu9TOB6g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKqj9Dc/ahYb1E6ywqnaTi/zrxigd9Fer0+McBXLmKKcavGzZo0HB82yGMfJkwrMYg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -472,9 +474,7 @@ namespace Data.Migrations
                         .HasMaxLength(10);
 
                     b.Property<string>("tenkhach")
-                        .HasColumnType("nvarchar(4000)")
-                        .HasMaxLength(4000)
-                        .IsUnicode(true);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("tinhtrang")
                         .ValueGeneratedOnAdd()
@@ -661,7 +661,7 @@ namespace Data.Migrations
                             hinhanh = "bach-tuoc-nuong-900x600.jpg",
                             idloaimon = 2,
                             mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 21, 10, 38, 19, 185, DateTimeKind.Local).AddTicks(5368),
+                            ngaynhap = new DateTime(2020, 10, 21, 10, 35, 19, 474, DateTimeKind.Local).AddTicks(1961),
                             tenmon = "Bạch tuộc nướng"
                         },
                         new
@@ -672,7 +672,7 @@ namespace Data.Migrations
                             hinhanh = "banh-cuon-900x587.jpg",
                             idloaimon = 2,
                             mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 21, 10, 38, 19, 185, DateTimeKind.Local).AddTicks(5940),
+                            ngaynhap = new DateTime(2020, 10, 21, 10, 35, 19, 474, DateTimeKind.Local).AddTicks(2554),
                             tenmon = "Bánh cuốn"
                         },
                         new
@@ -683,7 +683,7 @@ namespace Data.Migrations
                             hinhanh = "anh-caramen.jpg",
                             idloaimon = 4,
                             mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 21, 10, 38, 19, 185, DateTimeKind.Local).AddTicks(5955),
+                            ngaynhap = new DateTime(2020, 10, 21, 10, 35, 19, 474, DateTimeKind.Local).AddTicks(2570),
                             tenmon = "Caramen"
                         },
                         new
@@ -694,7 +694,7 @@ namespace Data.Migrations
                             hinhanh = "bulgogi1.jpg",
                             idloaimon = 4,
                             mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 21, 10, 38, 19, 185, DateTimeKind.Local).AddTicks(5957),
+                            ngaynhap = new DateTime(2020, 10, 21, 10, 35, 19, 474, DateTimeKind.Local).AddTicks(2573),
                             tenmon = "bulgogi vị dâu"
                         },
                         new
@@ -705,7 +705,7 @@ namespace Data.Migrations
                             hinhanh = "bulgogi2.jpg",
                             idloaimon = 4,
                             mota = "Cập nhật sau",
-                            ngaynhap = new DateTime(2020, 10, 21, 10, 38, 19, 185, DateTimeKind.Local).AddTicks(5959),
+                            ngaynhap = new DateTime(2020, 10, 21, 10, 35, 19, 474, DateTimeKind.Local).AddTicks(2575),
                             tenmon = "bulgogi vị cam"
                         });
                 });
@@ -760,7 +760,7 @@ namespace Data.Migrations
                         {
                             id = 1,
                             diachi = "Đồng Tiến - Khoái Châu - Hưng Yên",
-                            gianhap = new DateTime(2020, 10, 21, 10, 38, 19, 183, DateTimeKind.Local).AddTicks(9036),
+                            gianhap = new DateTime(2020, 10, 21, 10, 35, 19, 472, DateTimeKind.Local).AddTicks(5446),
                             gioitinh = 1,
                             hoten = "Triệu Tiểu Đường",
                             idbophan = 1,
@@ -771,7 +771,7 @@ namespace Data.Migrations
                         {
                             id = 2,
                             diachi = "Hồng Hà - Yên Bái - Yên Bái",
-                            gianhap = new DateTime(2020, 10, 21, 10, 38, 19, 184, DateTimeKind.Local).AddTicks(9374),
+                            gianhap = new DateTime(2020, 10, 21, 10, 35, 19, 473, DateTimeKind.Local).AddTicks(5550),
                             gioitinh = 1,
                             hoten = "Ngu Thư Hân",
                             idbophan = 2,
@@ -782,7 +782,7 @@ namespace Data.Migrations
                         {
                             id = 3,
                             diachi = "Đồng Tiến - Khoái Châu - Hưng Yên",
-                            gianhap = new DateTime(2020, 10, 21, 10, 38, 19, 184, DateTimeKind.Local).AddTicks(9411),
+                            gianhap = new DateTime(2020, 10, 21, 10, 35, 19, 473, DateTimeKind.Local).AddTicks(5595),
                             gioitinh = 1,
                             hoten = "Dụ Ngôn",
                             idbophan = 3,
@@ -793,7 +793,7 @@ namespace Data.Migrations
                         {
                             id = 4,
                             diachi = "Đồng Tiến - Khoái Châu - Hưng Yên",
-                            gianhap = new DateTime(2020, 10, 21, 10, 38, 19, 184, DateTimeKind.Local).AddTicks(9415),
+                            gianhap = new DateTime(2020, 10, 21, 10, 35, 19, 473, DateTimeKind.Local).AddTicks(5601),
                             gioitinh = 1,
                             hoten = "Lục Khả Nhiên",
                             idbophan = 1,
