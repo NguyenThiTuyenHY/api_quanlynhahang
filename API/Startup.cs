@@ -13,14 +13,26 @@ using Microsoft.EntityFrameworkCore;
 using App;
 using App.BLL.Interfaces;
 using App.BLL;
+using App.BLL.Helpers;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        //public Startup(IConfiguration configuration)
+        //{
+        //    Configuration = configuration;
+        //}
+        public Startup(IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(env.ContentRootPath)
+               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+               .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+               .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -31,6 +43,27 @@ namespace API
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()           //Fix API ISSUE
                                                                    .AllowAnyMethod()               //Fix API ISSUE
                                                                     .AllowAnyHeader()));           //Fix API ISSUE
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+            services.Configure<AppSettings>(appSettingsSection);
             services.AddDbContext<CommonContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddTransient<IManagerbananRespo, ManagerbananRespo>();
@@ -39,6 +72,7 @@ namespace API
             services.AddTransient<IManagermonanRespo, ManagermonanRespo>();
             services.AddTransient<IManageruserRespo, ManageruserRespo>();
             services.AddTransient<IManagerhoadonRespo, ManagerhoadonRespo>();
+            services.AddTransient<IManagertintucRespo, ManagertintucRespo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
