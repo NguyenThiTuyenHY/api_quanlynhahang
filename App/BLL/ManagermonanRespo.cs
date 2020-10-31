@@ -45,7 +45,7 @@ namespace App.BLL
 
         public List<monan> Get_All_Mon_An()
         {
-            return _context.monans.ToList();
+            return _context.monans.OrderByDescending(x=>x.id).ToList();
         }
 
         public monan Get_mon_an(int id)
@@ -102,7 +102,14 @@ namespace App.BLL
             IQueryable<monan> ds;
             if (id == 0)
             {
-                 ds = _context.monans;
+                if (search == null || search == "")
+                {
+                    ds = _context.monans;
+                }
+                else
+                {
+                    ds = _context.monans.Where(x=>x.tenmon.IndexOf(search) >= 0);
+                }
             }
             else
             {
