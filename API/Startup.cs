@@ -73,6 +73,7 @@ namespace API
             services.AddTransient<IManageruserRespo, ManageruserRespo>();
             services.AddTransient<IManagerhoadonRespo, ManagerhoadonRespo>();
             services.AddTransient<IManagertintucRespo, ManagertintucRespo>();
+            services.AddTransient<IManagerbinhluanRespo, Managerbinhluan>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -89,5 +89,7 @@ namespace Data.EF
         public DbSet<slider> sliders { get; set; }
         public DbSet<user>users { get; set; }
         public DbSet<tintuc> tintucs { get; set; }
+
+        public DbSet<binhluan> binhluans { get; set; }
     }
 }
